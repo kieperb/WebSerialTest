@@ -15,12 +15,11 @@
         // Prompt user to select any serial port.
         const port = await navigator.serial.requestPort();
         console.log(port);
-        const writer = port.writable.getWriter();
+        const writer = await port.writable.getWriter();
         console.log(writer);
       	const data = new Uint8Array([0xF5, 13, 1]);
-      	writer.write(data).then(() => {
-      	  writer.releaseLock();
-      	});
+      	await writer.write(data);
+        writer.releaseLock();      	
       });     
     </script>
   </body>
