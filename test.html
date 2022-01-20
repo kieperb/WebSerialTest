@@ -22,7 +22,8 @@
       	await writer.write(data);        
         data = new Uint8Array([0xF5, 12, 1]);
       	await writer.write(data);
-        //writer.releaseLock();      	
+        writer.releaseLock();
+        port.close();
       });     
     </script>
   </body>
