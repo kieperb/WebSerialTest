@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Web Serial Interface</title>    
+  </head>
+  <body>
+	<script>
+    
+    navigator.serial.requestPort().then((port) => {
+      const writer = port.writable.getWriter();
+      const data = new Uint8Array([0xF5, 13, 1]);
+      await writer.write(data);
+      // Allow the serial port to be closed later.
+      writer.releaseLock();
+    });   
+  </script>
+  </body>
+</html>
