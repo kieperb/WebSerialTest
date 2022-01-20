@@ -18,7 +18,7 @@
         console.log(port);
         const writer = await port.writable.getWriter();
         console.log(writer);
-      	const data = new Uint8Array([0xF4,13,1]);
+      	let data = new Uint8Array([0xF4,13,1]);
       	await writer.write(data);        
         data = new Uint8Array([0xF5, 13, 1]);
       	await writer.write(data);
