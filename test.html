@@ -18,11 +18,11 @@
         console.log(port);
         const writer = await port.writable.getWriter();
         console.log(writer);
-      	let data = new Uint8Array([0xF4,13,1]);
+      	let data = new Uint8Array([0xF4,12,1]);
       	await writer.write(data);        
-        data = new Uint8Array([0xF5, 13, 1]);
+        data = new Uint8Array([0xF5, 12, 1]);
       	await writer.write(data);
-        writer.releaseLock();      	
+        //writer.releaseLock();      	
       });     
     </script>
   </body>
