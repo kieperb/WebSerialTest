@@ -26,10 +26,10 @@
         const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
         const writer = textEncoder.writable.getWriter();
         console.log(writer);
-        await writer.write('import board');
-        await writer.write('import neopixel');
-        await writer.write('pixels = neopixel.NeoPixel(board.NEOPIXEL, 4)');
-        await writer.write('pixels.fill((255, 0, 0))');
+        await writer.write(' import board\n');
+        await writer.write('import neopixel\n');
+        await writer.write('pixels = neopixel.NeoPixel(board.NEOPIXEL, 4)\n');
+        await writer.write('pixels.fill((255, 0, 0))\n');
         await writer.releaseLock();
         await port.close();
       });     
