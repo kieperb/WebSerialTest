@@ -30,8 +30,6 @@
         await writer.write('import neopixel♪');
         await writer.write('pixels = neopixel.NeoPixel(board.NEOPIXEL, 4)♪');
         await writer.write('pixels.fill((255, 0, 0))♪');
-        await writer.releaseLock();
-        await port.close();
       });     
     </script>
   </body>
